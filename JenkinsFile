@@ -12,7 +12,7 @@ pipeline {
         stage('test') {
           steps {
               bat '''
-              npx playwright test chain_test
+              npx cucumber-js --config cucumber.mjs --tags @login
               '''
           }
           post {
