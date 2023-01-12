@@ -1,0 +1,30 @@
+{
+  "name": "playwright_ztrain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cucumber-js --config cucumber.mjs --tags @login",
+    "run": "npx playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.29.0",
+    "@types/node": "^18.11.18",
+    "allure-commandline": "^2.20.1",
+    "allure-cucumberjs": "^2.0.0-beta.21",
+    "allure-js-commons": "^2.0.0-beta.21",
+    "allure-playwright": "^2.0.0-beta.21",
+    "playwright": "^1.29.0",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^8.9.1",
+    "@types/cucumber-html-reporter": "^5.0.1",
+    "allure-cucumberjs8": "^2.0.0-beta.15",
+    "cucumber-html-reporter": "^5.5.0",
+    "ts-node": "^10.9.1"
+  }
+}
