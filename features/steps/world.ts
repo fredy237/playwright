@@ -10,12 +10,17 @@ let pageFirefox:Page;
 let browser:Browser;
 let browse:Browser;
 
-setDefaultTimeout(60000)
+setDefaultTimeout(600000)
 
 BeforeAll(()=>{
   
   fsExtra.emptyDirSync("reports/allure-results");
+  fs.copyFile("reports/environment.xml", "reports/allure-results/environment.xml", (err) => {
+    if (err) {
+      console.log("Error Found:", err);
+    }
   });
+})
 
 
 Before(async()=>{
@@ -79,11 +84,12 @@ After(async function( Scenario) {
     console.log("error")
    
     await this.attach(await page.screenshot({path : `./Screenshot/${Scenario.pickle.name}.png`, fullPage:true}), "image/png")
+    
     browser.close();
     browse.close();
-  //  const je= await page.video().saveAs(`videos_records/${Scenario.pickle.name}.webm`);
-    //const readStream= await fs.createReadStream(`videos_records/${Scenario.pickle.name}.webm`);
-     //await this.attach(readStream, "video/webm");
+    const je= await page.video().saveAs(`videos_records/${Scenario.pickle.name}.webm`);
+    const readStream= await fs.createReadStream(`videos_records/${Scenario.pickle.name}.webm`);
+     await this.attach(readStream, "video/webm");
   }
 });
 

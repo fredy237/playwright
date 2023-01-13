@@ -35,7 +35,7 @@ Scenario Outline: I search a product
     Then I valid 
     Examples:
         |product|
-        |chaise |
+        |Ampoule|
        
 
 
